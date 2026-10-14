@@ -1,10 +1,1 @@
-export async function onRequestGet() {
-  return Response.json({
-    ok: true,
-    app: "FreeAI Studio",
-    message: "Cloudflare Pages Functions backend is running.",
-    aiGeneration: "not_connected"
-  }, {
-    headers: { "Cache-Control": "no-store" }
-  });
-}
+export async function onRequestGet({env}){return Response.json({ok:true,service:"FreeAI Studio Pages API",supabaseConfigured:Boolean(env.SUPABASE_URL&&env.SUPABASE_ANON_KEY)})}
